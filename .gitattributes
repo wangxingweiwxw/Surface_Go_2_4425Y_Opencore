@@ -1,0 +1,4 @@
+EFI/** -text
+*.md text eol=lf
+Sources/** text eol=lf
+EFI-SHA256SUMS.txt text eol=lf

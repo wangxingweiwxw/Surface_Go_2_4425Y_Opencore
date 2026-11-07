@@ -1,0 +1,7 @@
+.DS_Store
+._*
+__MACOSX/
+*.log
+opencore-*.txt
+nvram.plist
+EFI/Microsoft/
