@@ -10,6 +10,18 @@ An EFI configuration for the **Microsoft Surface Go 2 with Pentium Gold 4425Y, 8
 
 This repository preserves the stable Monterey configuration. **It is not a drop-in EFI for Ventura or later.** Core m3 and 4GB/eMMC variants have not been validated with this configuration.
 
+## v19.1 更新 / v19.1 update
+
+在 Pentium Gold 4425Y 上，Monterey 读取某些 APFS 压缩文件时，系统解压驱动可能执行 CPU 不支持的 AVX 指令，引发内核崩溃。v19.1 新增 `NoAVXFSCompressionTypeZlib.kext`，仅在 x86_64、Darwin 21.6.0 加载。已在 Monterey 12.7.6（21H1320）确认驱动加载并在启动时匹配。原触发文件的解压结果仍待验证。
+
+On the Pentium Gold 4425Y, reading certain APFS-compressed files in Monterey can cause a kernel panic when the system decompressor executes an unsupported AVX instruction. v19.1 adds `NoAVXFSCompressionTypeZlib.kext` for x86_64 on Darwin 21.6.0. Driver loading and matching at boot were confirmed on Monterey 12.7.6 (21H1320). Decompression of the original triggering file still needs verification.
+
+从 v19 升级时，先备份自己的 EFI。将新增的 kext 复制到 `EFI/OC/Kexts/`，再从本仓库的 `config.plist` 复制同名的 `Kernel → Add` 条目到自己的配置，即可保留现有 SMBIOS 和双启动设置。
+
+To upgrade from v19, back up your EFI, copy the new kext into `EFI/OC/Kexts/`, and copy its entry from `Kernel → Add` in the published `config.plist` into yours. This preserves your existing SMBIOS identity and dual-boot settings.
+
+驱动来源 / Driver source: [OpenCore Legacy Patcher 2.4.1 · Monterey payload](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/2.4.1/payloads/Kexts/Misc/NoAVXFSCompressionTypeZlib-v12.3.1.zip)
+
 ## 硬件与系统 / Hardware and software
 
 | 项目 / Item | 配置 / Configuration |

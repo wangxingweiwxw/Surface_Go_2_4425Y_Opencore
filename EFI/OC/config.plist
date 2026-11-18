@@ -957,6 +957,24 @@
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
+				<string>NoAVXFSCompressionTypeZlib.kext</string>
+				<key>Comment</key>
+				<string>Monterey 21.6 - non-AVX filesystem decompressor</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/NoAVXFSCompressionTypeZlib</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+				<key>MinKernel</key>
+				<string>21.6.0</string>
+				<key>MaxKernel</key>
+				<string>21.6.0</string>
+			</dict>
 		</array>
 		<key>Block</key>
 		<array>
